@@ -59,20 +59,24 @@ public class HomeActivityFragment extends Fragment {
             builder.setSingleChoiceItems(items, choice, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int item) {
 
-                    switch (item) {
-                        case 0:
-                            Log.e("ABC", "Most Popular");
-                            //Display Popular Movies
-                            break;
-                        case 1:
-                            Log.e("ABC", "Highest Rating");
-                            break;
-                        case 2:
-                            Log.e("ABC", "Favorites");
-                            break;
+                    if (choice != item) {
+                        switch (item) {
+                            case 0:
+                                Log.e("ABC", "Most Popular");
+                                choice = 0;
+                                //Display Popular Movies
+                                break;
+                            case 1:
+                                Log.e("ABC", "Highest Rating");
+                                choice = 1;
+                                break;
+                            case 2:
+                                Log.e("ABC", "Favorites");
+                                choice = 2;
+                                break;
+                        }
+                        levelDialog.dismiss();
                     }
-                    levelDialog.dismiss();
-
                 }
             });
 
